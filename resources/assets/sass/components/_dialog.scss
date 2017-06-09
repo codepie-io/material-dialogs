@@ -1,0 +1,200 @@
+@import "../variables/variables";
+@import "../mixins/mixins";
+
+// ==========  Dialog  ========== //
+
+$dialog-full-screen-header-background : unquote("rgb(#{$color-primary})");
+
+.md-dialog{
+  z-index: -1;
+  pointer-events: none;
+  position: fixed;
+  overflow: hidden;
+  left: 0;
+  top: 0;
+  width: 100%;
+  padding: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 24px;
+
+  /*Elements*/
+
+  &__shadow {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    will-change: opacity;
+  }
+
+  &__surface{
+    display: inline-flex;
+    flex-direction: column;
+    border-radius: 2px;
+    background-color: unquote("rgb(#{$color-white})");
+    opacity: 0;
+    min-width: 240px;
+    width: auto;
+    max-width: 80%;
+    transform: translateY(150px) scale(0.8);
+    will-change: transform, opacity;
+
+    &--follow-origin{
+      transform: translateY(0) scale(0.8);
+    }
+
+    @media (max-width: 640px) {
+      max-width: calc(100% - 32px);
+    }
+  }
+
+  &__header{
+    display: flex;
+    align-items: center;
+    padding: 24px 24px 0;
+  }
+
+  &__header-title{
+    flex: 1;
+    margin: 0;
+    @include typo-title();
+    line-height: 32px;
+  }
+
+  &__body{
+    padding: 0 24px 24px;
+    margin-top: 20px;
+
+    &--scrollable{
+      max-height: 195px;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      overflow-y: auto;
+      overflow-x: auto;
+      webkit-overflow-scrolling: touch;
+    }
+  }
+
+  &__body-description{
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0;
+    opacity: .84;
+
+  }
+
+  &__footer{
+    padding: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  &__action:nth-child(2){
+    margin-left: 8px;
+  }
+
+  /*Modifiers*/
+
+  &--open{
+    pointer-events: auto;
+    z-index: 24;
+
+    .md-dialog__shadow{
+      opacity: 1;
+      z-index: inherit;
+    }
+
+    .md-dialog__surface{
+      transform: translateY(0) scale(1);
+      z-index: 25;
+      opacity: 1;
+      @include shadow-24dp()
+    }
+  }
+
+  &--full-screen{
+
+    justify-content: flex-start;
+
+    .md-dialog__surface{
+      width: 100%;
+      height: 100%;
+      max-width: none;
+      border-radius: 0;
+    }
+    .md-dialog__header{
+      padding: 0 16px 0;
+      min-height: 56px;
+      max-height: 92px;
+      overflow: hidden;
+      background-color: $dialog-full-screen-header-background;
+      color: unquote("rgb(#{$color-primary-contrast})");
+      @include shadow-4dp();
+    }
+    .md-dialog__header-action-dismissive{
+      margin-right: 24px;
+      margin-left: -8px;
+      color: unquote("rgb(#{$color-primary-contrast})");
+    }
+    .md-dialog__header-title{
+      flex-grow: 1;
+    }
+    .md-dialog__header-action-affirmative{
+      margin-left: 16px;
+      margin-right: -8px;
+      color: unquote("rgb(#{$color-primary-contrast})");
+    }
+    .md-dialog__body{
+      flex-grow: 1;
+    }
+  }
+
+  &--animating{
+    pointer-events: none;
+    z-index: 24;
+
+    .md-dialog__shadow{
+      z-index: inherit;
+      @include material-animation-default(0.3s);
+      transition-timing-function: cubic-bezier(.25,.8,.25,1);
+      transition-duration: .4s;
+      transition-property: transform, opacity;
+      @media (max-width: 640px) {
+        transition-duration: 0.3s;
+      }
+    }
+
+    .md-dialog__surface{
+      transition-timing-function: cubic-bezier(.25,.8,.25,1);
+      transition-duration: .4s;
+      transition-property: transform, opacity;
+      @media (max-width: 640px) {
+        transition-duration: 0.3s;
+      }
+      z-index: 25;
+    }
+  }
+
+}
+
+body.is-dialog-open{
+  overflow: hidden;
+}
+.dialog-virtual-scroll{
+  position: absolute;
+  top: -999px;
+  width: 50px;
+  height: 50px;
+  overflow: scroll;
+  visibility: hidden;
+}

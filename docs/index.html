@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>Dialogs | Material Design | CodeArtisan</title>
+    <!-- Disable tap highlight on IE -->
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Dialogs | Material Design | CodeArtisan">
+    <meta name="theme-color" content="#4caf50">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Artisan Deals">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#43a047">
+
+    <!-- Tile icon for Win8 -->
+    <meta name="msapplication-TileColor" content="#4caf50">
+    <meta name="msapplication-navbutton-color" content="#43a047">
+
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Material+Icons' rel='stylesheet' type='text/css'>
+
+
+    <link href="css/app.css" rel="stylesheet">
+    <link href="css/code.css" rel="stylesheet">
+    <link href="css/dialog.css" rel="stylesheet">
+</head>
+<body class="has-fixed-header">
+
+<div class="md-dialog" id="dialog-1">
+    <div class="md-dialog__shadow"></div>
+    <div class="md-dialog__surface">
+        <header class="md-dialog__header">
+            <h2 class="md-dialog__header-title">
+                Use Google's location service?
+            </h2>
+        </header>
+        <div class="md-dialog__body">
+            <div class="md-dialog__body-description">
+                Let Google help apps determine location.
+            </div>
+        </div>
+        <footer class="md-dialog__footer">
+            <button class="md-dialog__action md-button md-button--compact" data-action="dismissive">CANCEL</button>
+            <button class="md-dialog__action md-button md-button--compact" data-action="affirmative">CONTINUE</button>
+        </footer>
+    </div>
+</div>
+
+<div class="md-dialog" id="alert-1">
+    <div class="md-dialog__shadow"></div>
+    <div class="md-dialog__surface">
+        <div class="md-dialog__body">
+            <div class="md-dialog__body-description">
+                Discard Draft?
+            </div>
+        </div>
+        <footer class="md-dialog__footer">
+            <button class="md-dialog__action md-button md-button--primary md-button--compact" data-action="dismissive">CANCEL</button>
+            <button class="md-dialog__action md-button md-button--primary md-button--compact" data-action="affirmative">OK</button>
+        </footer>
+    </div>
+</div>
+
+<div class="md-dialog md-dialog--full-screen" id="full-screen-1">
+    <div class="md-dialog__shadow"></div>
+    <div class="md-dialog__surface">
+        <header class="md-dialog__header">
+            <button class="md-button md-button--icon md-dialog__header-action-dismissive" data-action="dismissive">
+                <i class="material-icons">close</i>
+            </button>
+            <div class="md-dialog__header-title">
+                New Event
+            </div>
+            <button class="md-button md-button--dense md-dialog__header-action-affirmative" data-action="affirmative">
+                save
+            </button>
+        </header>
+        <div class="md-dialog__body">
+            <div class="md-dialog__body-description">
+                Full-screen dialog titles
+
+                Full-screen dialog titles can wrap to a second line if necessary, and then should be truncated. Titles should be succinct, but in some situations, such as when words are longer in different languages, titles may need to wrap
+            </div>
+        </div>
+    </div>
+</div>
+
+<header class="md-header md-header--primary is-fixed is-casting-shadow">
+    <div class="md-header__row">
+        <div class="layout-m-l-1 md-header__title"> Dialogs </div>
+        <div class="md-layout-spacer"></div>
+    </div>
+</header>
+
+<section class="" id="app">
+    <div class="md-container md-container--box layout-m-b-3">
+        <h1 class="md-typography--display-1 md-text-primary">
+            Dialogs
+        </h1>
+        <div class="md-row">
+            <div class="md-col md-col--8 md-col--sm-12 md-col--xs-12">
+                <div class="content__text--sub-text md-typography--font-regular">
+                    Dialogs inform users about a specific task and may contain critical information, require decisions, or involve multiple tasks.
+                </div>
+            </div>
+        </div>
+        <div class="md-row">
+            <div class="md-col layout-m-t-2 md-align md-align--center-center">
+                <div class="md-layout md-layout--column">
+                    <a href="javascript:;" type="button" class="md-button md-button--primary md-button--raised layout-m-t-1" data-toggle="dialog" data-target="#dialog-1">Show Dialog</a>
+                    <a href="javascript:;" type="button" class="md-button md-button--primary md-button--raised layout-m-t-1" data-toggle="dialog" data-target="#alert-1">Show Alert</a>
+                    <a href="javascript:;" type="button" class="md-button md-button--primary md-button--raised layout-m-t-1" data-toggle="dialog" data-target="#full-screen-1">Show Full Screen Dialog</a>
+                </div>
+            </div>
+            <div class="md-col">
+                <p id="notification" class="layout-m-t-3 md-typography--subhead md-typography--font-light text-center">
+
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <script src="js/jquery.js"></script>
+    <script src="js/dialog.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
