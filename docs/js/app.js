@@ -53,4 +53,5 @@ $(function(){
     fullScreenDialog.on('ca.dialog.keydown.dismiss', function(){
         $('#notification').html('You dismiss the dialog by pressing esc key.');
     });
+    hljs.initHighlightingOnLoad();
 });

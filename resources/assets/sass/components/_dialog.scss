@@ -65,7 +65,7 @@ $dialog-full-screen-header-background : unquote("rgb(#{$color-primary})");
     flex: 1;
     margin: 0;
     @include typo-title();
-    line-height: 32px;
+    line-height: 24px;
   }
 
   &__body{

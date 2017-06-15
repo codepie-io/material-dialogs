@@ -126,6 +126,7 @@
             if(this.isShown_)
                 return;
             this.setScrollBarWidth_();
+            $('body').addClass(this.Classes_.BODY_CLASS);
             this.$dialog.trigger(Event.SHOW);
             this.$dialog.addClass(this.Classes_.IS_ANIMATING).addClass(this.Classes_.IS_OPEN);
             this.isAnimating_ = true;
