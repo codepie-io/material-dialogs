@@ -21,7 +21,7 @@
     var Selector = {
         DIALOG: '.md-dialog',
         DATA_TOGGLE: '[data-toggle="dialog"]',
-        DATA_DISMISS: '[data-dismiss="meow"]'
+        DATA_DISMISS: '[data-dismiss="dialog"]'
     };
 
     var MaterialDialog = function (){
