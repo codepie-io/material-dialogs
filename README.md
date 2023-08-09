@@ -13,7 +13,7 @@ Full-screen dialogs are best suited to complex tasks, or require an input method
  as they group a series of tasks together before they can be saved.
 
 ## Demo
- <a href="https://codeartisan-ui.github.io/material-dialogs/" target="_blank">dialog.js 1.0</a>
+ <a href="https://codepie-io.github.io/material-dialogs/" target="_blank">dialog.js 1.0</a>
 
 
 ## Where is it being tested?
